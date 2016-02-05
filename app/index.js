@@ -15,9 +15,10 @@ module.exports = function (app) {
 	// HOME PAGE is the sole API call --------------------------------------- //
 	app.route('/')
 		.get(function(req, res) {
-			console.log("req",req);
-			console.log("\n\n\nres", res);
-			res.end();
+			console.log("req",req.headers);
+			res.send(JSON.stringify(req.headers));
+			//console.log("\n\n\nres", res.headers);
+			//res.end();
 		})
 		//.get(headerServer.parse);
 
