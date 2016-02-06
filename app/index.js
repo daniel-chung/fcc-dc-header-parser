@@ -16,9 +16,9 @@ module.exports = function (app) {
 	app.route('/')
 		.get(function(req, res) {
 			//console.log("req",req.headers);
-			res.send("hello");
+			//res.send("hello");
 
-			//res.send(JSON.stringify(req.headers["user-agent"]));
+			res.send(JSON.stringify(req.headers));
 
 			//console.log("\n\n\nres", res.headers);
 			//res.end();
