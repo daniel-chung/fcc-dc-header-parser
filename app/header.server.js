@@ -8,10 +8,15 @@
 function HeaderServer () {
 
   // convert method ------------------------------------------------------- //
-  this.parser = function (req, res) {
+  this.parse = function (req, res) {
+    var header = req.headers;
+    var result = {};
+    result.ipaddress = header["x-forwarded-for"];
+    result.language = header["accept-language"].split(",")[0];
+    result.software = /(\(.*\))/.exec(header["user-agent"])[1];
 
-    res.end();
-    //res.send(getDateObj(inputDate));
+    res.json(result);
+    //res.send(JSON.stringify(req.headers));
 
   };  // End convert method ----------------------------------------------- //
 };
