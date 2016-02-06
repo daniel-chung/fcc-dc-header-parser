@@ -12,15 +12,16 @@ module.exports = function (app) {
   // Server side controllers ---------------------------------------------- //
 	var headerServer = new HeaderServer();
 
-	// HOME PAGE is the sole API call --------------------------------------- //
+	// Routes  ------------------------------------------------------------- //
+	// HOME PAGE (placeholder)
 	app.route('/')
-		.get(headerServer.parse);
-
-  // Test page ----------------------------------------------------------- //
-	app.route('/test')
 		.get(function(req, res) {
-			res.send('hello');
-		});
+			res.send('Placeholder main page.<br>Go to /api/whoami');
+		})
+
+	// API
+	app.route('/api/whoami')
+		.get(headerServer.parse);
 
 	// Error page
 	app.route('/error')

@@ -13,12 +13,10 @@ function HeaderServer () {
     var result = {};
     result.ipaddress = header["x-forwarded-for"];
     result.language = header["accept-language"].split(",")[0];
-    result.software = /(\(.*\))/.exec(header["user-agent"])[1];
-
+    result.software = /\((.*)\)/.exec(header["user-agent"])[1];
     res.json(result);
-    //res.send(JSON.stringify(req.headers));
-
   };  // End convert method ----------------------------------------------- //
+
 };
 
 
